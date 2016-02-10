@@ -1,0 +1,29 @@
+1. Get the new ubuntu vagrant box
+2u. vagrant ssh
+3. sudo apt-get update
+4. sudo apt-get install lamp-stack^ (mind the caret)
+5. sudo apt-get install imagick php5-imagick git phpmyadmin beanstalkd
+6. sudo cp /etc/phpmyadmin/apache.conf /etc/apache2/sites-available/phymyadmin
+7. change the alias in /etc/apache2/sites-available/phpmyadmin from /phpmyadmin to /pma
+8. sudo a2ensite phymyadmin
+9. sudo add-apt-repository ppa:chris-lea/redis-server (press enter to accept)
+10. sudo apt-get update
+11. sudo apt-get install redis-server
+12. install nvm as vagrant user
+13. nvm install 0.10.29 (note the lack of "sudo")
+14. add an nvm alias "default" for 0.10.29 (man nvm; can't remember the syntax)
+15. copy the nvm automatic appends from .bashrc to .bash_profile
+16. nvm install -g grunt-cli
+17. from the app directory (within vagrant) do an npm install
+18. sudo mkdir -p /usr/share/cake/core/2.x
+19. cd /usr/share/cake/core
+20. sudo git clone https://github.com/cakephp/cakephp.git 2.x
+21. sudo chown -R vagrant:www-data 2.x
+22. sudo ln -s 2.x development
+23. cd 2.x
+24. git checkout tags/2.7.5 (use whichever 2.x version is newest)
+25. add the following to .bash_profile
+		alias cake='/usr/share/cake/core/development/lib/Cake/Console/cake'
+26. sudo pico /etc/login.defs (change umask to 002)
+27. Exit ssh and do a dance with setting up the vagrantfile (just us an old one as a template)
+28. Leave the box
