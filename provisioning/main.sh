@@ -2,12 +2,6 @@
 
 VAGRANT=/home/vagrant
 
-echo '# !!!!!!!!!!!!!!!!!!! #';
-echo '# !                 ! #';
-echo '# !    CASH MONEY   ! #';
-echo '# !                 ! #';
-echo '# !!!!!!!!!!!!!!!!!!! #';
-
 cd ${VAGRANT} && git clone git://github.com/creationix/nvm.git nvm;
 
 if [ ! -s ${VAGRANT}/nvm/nvm.sh]
