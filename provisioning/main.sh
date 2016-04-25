@@ -15,5 +15,9 @@ if ! grep -q 'source ${VAGRANT}/nvm/nvm.sh' ${VAGRANT}/.bashrc
         echo "source "${VAGRANT}"/nvm/nvm.sh" >> /home/vagrant/.bashrc
 fi
 
-source /home/vagrant/nvm/nvm.sh && nvm install 0.10.29 && nvm alias default 0.10.29
+source /home/vagrant/nvm/nvm.sh && nvm install node && nvm alias default node
+
+npm install -g grunt-cli
+
+cd /var/www/ && npm install
 
