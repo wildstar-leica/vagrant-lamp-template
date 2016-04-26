@@ -4,8 +4,15 @@ DS = File::SEPARATOR
 projectPath = File.dirname(__FILE__)
 appDir = File.basename(projectPath)
 modDir = "/home/vagrant/"+appDir+"/node_modules"
-mountDir = "/var/www"
-vagrantDir = "/home/vagrant"
+shellEnv = {
+   "VAGRANT" => "/home/vagrant",
+   "VAGRANT_MOD_DIR" => modDir,
+   "VAGRANT_MOUNT_DIR" => "/var/www",
+   "VAGRANT_APP_DIR" => appDir,
+   "VAGRANT_DEV_MYP" => "roosterlake",
+   "VAGRANT_DB" => "builder"
+}
+
 
 Vagrant.configure("2") do |config|
 	config.vm.provider "virtualbox" do |v|
@@ -35,23 +42,13 @@ Vagrant.configure("2") do |config|
 
     config.vm.provision :shell do |shell|
         shell.privileged = true;
-        shell.path = "provisioning/services.sh;
-        shell.env = {
-            "VAGRANT" => vagrantDir
-            , "VAGRANT_MOD_DIR" => modDir
-            , "VAGRANT_MOUNT_DIR" => mountDir
-            , "VAGRANT_APP_DIR" => appDir
-        }
+        shell.path = "provisioning/services.sh"
+        shell.env = shellEnv
     end
 
     config.vm.provision :shell do |shell|
         shell.privileged = false;
-        shell.path = "provisioning/node.sh";
-        shell.env = {
-            "VAGRANT" => vagrantDir
-            , "VAGRANT_MOD_DIR" => modDir
-            , "VAGRANT_MOUNT_DIR" => mountDir
-            , "VAGRANT_APP_DIR" => appDir
-        }
+        shell.path = "provisioning/node.sh"
+        shell.env = shellEnv
     end
 end

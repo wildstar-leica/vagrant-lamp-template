@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
-VAGRANT=/home/vagrant
-
+sleep 10
 cd ${VAGRANT} && git clone git://github.com/creationix/nvm.git nvm;
 
-if [ ! -s ${VAGRANT}/nvm/nvm.sh]
+if [ ! -s ${VAGRANT}/nvm/nvm.sh ]
     then
         echo 'failed to clone nvm';
         exit 1;
@@ -15,9 +14,11 @@ if ! grep -q 'source ${VAGRANT}/nvm/nvm.sh' ${VAGRANT}/.bashrc
         echo "source "${VAGRANT}"/nvm/nvm.sh" >> /home/vagrant/.bashrc
 fi
 
-source /home/vagrant/nvm/nvm.sh && nvm install node && nvm alias default node
+source ${VAGRANT}/nvm/nvm.sh && nvm install node && nvm alias default node
+
+npm config set loglevel warn
 
 npm install -g grunt-cli
 
-cd /var/www/ && npm install
+cd ${VAGRANT_MOUNT_DIR} && npm install
 

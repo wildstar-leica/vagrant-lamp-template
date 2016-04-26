@@ -84,9 +84,7 @@ return [
      */
     'Cache' => [
         'default' => [
-            'className' => 'File',
-            'path' => CACHE,
-            'url' => env('CACHE_DEFAULT_URL', null),
+            'className' => 'Redis',
         ],
 
         /**
@@ -95,12 +93,10 @@ return [
          * Duration will be set to '+1 year' in bootstrap.php when debug = false
          */
         '_cake_core_' => [
-            'className' => 'File',
+            'className' => 'Redis',
             'prefix' => 'myapp_cake_core_',
-            'path' => CACHE . 'persistent/',
             'serialize' => true,
             'duration' => '+2 minutes',
-            'url' => env('CACHE_CAKECORE_URL', null),
         ],
 
         /**
@@ -110,12 +106,10 @@ return [
          * Duration will be set to '+1 year' in bootstrap.php when debug = false
          */
         '_cake_model_' => [
-            'className' => 'File',
+            'className' => 'Redis',
             'prefix' => 'myapp_cake_model_',
-            'path' => CACHE . 'models/',
             'serialize' => true,
             'duration' => '+2 minutes',
-            'url' => env('CACHE_CAKEMODEL_URL', null),
         ],
     ],
 
@@ -226,9 +220,9 @@ return [
              * the following line and set the port accordingly
              */
             //'port' => 'non_standard_port_number',
-            'username' => 'my_app',
-            'password' => 'secret',
-            'database' => 'my_app',
+            'username' => 'root',
+            'password' => 'roosterlake',
+            'database' => 'builder',
             'encoding' => 'utf8',
             'timezone' => 'UTC',
             'flags' => [],
@@ -266,9 +260,9 @@ return [
             'persistent' => false,
             'host' => 'localhost',
             //'port' => 'non_standard_port_number',
-            'username' => 'my_app',
-            'password' => 'secret',
-            'database' => 'test_myapp',
+            'username' => 'root',
+            'password' => 'roosterlake',
+            'database' => 'test_builder',
             'encoding' => 'utf8',
             'timezone' => 'UTC',
             'cacheMetadata' => true,
