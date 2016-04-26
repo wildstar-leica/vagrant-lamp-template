@@ -12,7 +12,7 @@
 [Git](https://git-scm.com/) is used for version control, branching and release management.
 
 **IMPORTANT:**
-Only use git from a local terminal. This is crucial for the integrity of the project files. To avoid this, it's recommended that new users also download and install [SourceTree](https://www.sourcetreeapp.com/);
+Only use git from a local terminal. This is crucial for the integrity of the project files. To avoid this, it's recommended that new users also download and install [SourceTree](https://www.sourcetreeapp.com/).
 
 
 ### Build the environment
