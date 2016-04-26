@@ -1,9 +1,11 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 DS = File::SEPARATOR
-projectPath = File.dirname(__FILE__);
-appDir = File.basename(projectPath);
-modDir = "/home/vagrant/"+appDir+"/node_modules";
+projectPath = File.dirname(__FILE__)
+appDir = File.basename(projectPath)
+modDir = "/home/vagrant/"+appDir+"/node_modules"
+mountDir = "/var/www"
+vagrantDir = "/home/vagrant"
 
 Vagrant.configure("2") do |config|
 	config.vm.provider "virtualbox" do |v|
@@ -32,28 +34,24 @@ Vagrant.configure("2") do |config|
 
 
     config.vm.provision :shell do |shell|
-      shell.privileged = true;
-      shell.inline = "debconf-set-selections <<< 'mysql-server mysql-server/root_password password roosterlake'
-        debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password roosterlake'
-        debconf-set-selections <<< 'phpmyadmin phpmyadmin/dbconfig-install boolean false'
-        debconf-set-selections <<< 'phpmyadmin phpmyadmin/app-password-confirm password roosterlake'
-        debconf-set-selections <<< 'phpmyadmin phpmyadmin/mysql/admin-pass password roosterlake'
-        debconf-set-selections <<< 'phpmyadmin phpmyadmin/mysql/app-pass password roosterlake'
-        debconf-set-selections <<< 'phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2'
-        apt-get update && apt-get install -y lamp-server^ imagemagick php-imagick phpmyadmin git beanstalkd redis-server;
-        cp -ua /var/www/provisioning/apache2 /etc/;
-        a2ensite * && a2dissite *default*;
-        service apache2 reload;
-        mkdir -p #{modDir}
-        chown vagrant:www-data #{modDir}
-        chmod g+w #{modDir}
-        cd /var/www
-        ln -sf #{modDir} node_modules
-        chown -h vagrant:www-data node_modules";
+        shell.privileged = true;
+        shell.path = "provisioning/services.sh;
+        shell.env = {
+            "VAGRANT" => vagrantDir
+            , "VAGRANT_MOD_DIR" => modDir
+            , "VAGRANT_MOUNT_DIR" => mountDir
+            , "VAGRANT_APP_DIR" => appDir
+        }
     end
 
     config.vm.provision :shell do |shell|
-      shell.privileged = false;
-      shell.path = "provisioning/main.sh";
+        shell.privileged = false;
+        shell.path = "provisioning/node.sh";
+        shell.env = {
+            "VAGRANT" => vagrantDir
+            , "VAGRANT_MOD_DIR" => modDir
+            , "VAGRANT_MOUNT_DIR" => mountDir
+            , "VAGRANT_APP_DIR" => appDir
+        }
     end
 end

@@ -1,6 +1,8 @@
 {
     "name" : "capsaicin"
     , "version" : "0.0.1"
+    , "description" : "TBD"
+    , "license": "MIT"
     , "repository" : {
         "type" : "git"
     }

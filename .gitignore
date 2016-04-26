@@ -1,0 +1,9 @@
+/vendor/*
+/config/app.php
+/tmp/*
+/logs/*
+/node_modules
+/node_modules/*
+.vagrant/*
+.editorconfig
+.idea/*
