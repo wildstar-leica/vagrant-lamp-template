@@ -34,6 +34,7 @@ Type "cmd" in the quick search bar. When it pops up, right click on CMD and choo
 ````
 cd /d %USERPROFILE%
 mkdir Projects
+cd Projects
 git clone https://github.com/jonathanbruder/builder.git builder
 cd builder
 vagrant up
