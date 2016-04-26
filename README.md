@@ -1,26 +1,20 @@
-# CakePHP Application Skeleton
+# Builder
 
-[![Build Status](https://img.shields.io/travis/cakephp/app/master.svg?style=flat-square)](https://travis-ci.org/cakephp/app)
-[![License](https://img.shields.io/packagist/l/cakephp/app.svg?style=flat-square)](https://packagist.org/packages/cakephp/app)
+## Getting started
 
-A skeleton for creating applications with [CakePHP](http://cakephp.org) 3.x.
+### Install VirtualBox
+[VirtualBox](https://www.virtualbox.org/) is used to host a local development environment.
 
-The framework source code can be found here: [cakephp/cakephp](https://github.com/cakephp/cakephp).
+### Install Vagrant
+[Vagrant](https://www.vagrantup.com/downloads.html) is used to quickly build, provision, and manage the local server.
 
-## Installation
+### Install Git
+[Git](https://git-scm.com/download/mac) is used for version control, branching and release management.
 
-1. Download [Composer](http://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
-2. Run `php composer.phar create-project --prefer-dist cakephp/app [app_name]`.
+**IMPORTANT:**
+Only use git from a local terminal. This is crucial for the integrity of the project files. To avoid this, it's recommended that new users also download and install [SourceTree](https://www.sourcetreeapp.com/);
 
-If Composer is installed globally, run
-```bash
-composer create-project --prefer-dist cakephp/app [app_name]
-```
 
-You should now be able to visit the path to where you installed the app and see
-the setup traffic lights.
-
-## Configuration
-
-Read and edit `config/app.php` and setup the 'Datasources' and any other
-configuration relevant for your application.
+### Build the environment
+This will create the path [your user]/Projects/builder, initialize the project, and start the environment build process. The first-time download will be several gigabytes and may take some time. You will be asked for your github login.
+````curl -s http://roosterlake.org/new-builder.sh | bash````
