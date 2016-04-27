@@ -11,7 +11,7 @@ shellEnv = {
    "VAGRANT_MOUNT_DIR" => mountDir,
    "VAGRANT_APP_DIR" => appDir,
    "VAGRANT_DEV_MYP" => "BananaNUTbr3@d",
-   "VAGRANT_DB" => "localDev"
+   "VAGRANT_DB" => "localDev",
    "VAGRANT_TIMEZONE" => "America/Chicago"
 }
 
