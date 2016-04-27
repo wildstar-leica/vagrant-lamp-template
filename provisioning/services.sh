@@ -1,6 +1,5 @@
 $!/usr/bin/env bash
-echo "mysql-server mysql-server/root_password password ${VAGRANT_DEV_MYP}"
-sleep 5
+timedatectl set-timezone ${VAGRANT_TIMEZONE}
 
 #Pre-set lamp server config options
 debconf-set-selections <<< "mysql-server mysql-server/root_password password ${VAGRANT_DEV_MYP}"

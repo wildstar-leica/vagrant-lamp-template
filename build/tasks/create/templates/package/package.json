@@ -1,0 +1,14 @@
+{
+    "name": "package"
+    , "version": "1.0.0"
+    , "created": "!now"
+    , "author": {
+        "name": "Jonathan Bruder"
+        , "email": "jbruder@gmail.com"
+    }
+    , "build": {
+        "requires": [
+            "jquery"
+        ]
+    }
+}

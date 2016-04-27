@@ -1,0 +1,27 @@
+{
+    "name": "package"
+    , "author": {
+        "name": "Jonathan Bruder"
+        , "email": "jbruder@gmail.com"
+    }
+    , "rename": {
+        "{{this}}":"{{target}}"
+        ,"{{target}}/src/{{this}}.js":"{{target}}/src/{{target}}.js"
+    }
+    , "replace": [
+        {
+            "case":"match"
+            , "targets":["{{target}}/src/{{target}}.js","{{target}}/package.json"]
+            , "replacements":{
+                "{{this}}":"{{target}}"
+            }
+        }
+        , {
+            "case":"exact"
+            , "targets":["{{target}}/src/{{target}}.js","{{target}}/package.json"]
+            , "replacements":{
+                "!now":"{{date:dddd, mmmm dS, yyyy, h:MM:ss TT}}"
+            }
+        }
+    ]
+}

@@ -16,9 +16,7 @@ fi
 
 source ${VAGRANT}/nvm/nvm.sh && nvm install node && nvm alias default node
 
-npm config set loglevel warn
+npm install -g -s grunt-cli
 
-npm install -g grunt-cli
-
-cd ${VAGRANT_MOUNT_DIR} && npm install
+cd ${VAGRANT_MOUNT_DIR} && npm -s install
 

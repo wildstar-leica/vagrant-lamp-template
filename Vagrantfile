@@ -4,15 +4,16 @@ DS = File::SEPARATOR
 projectPath = File.dirname(__FILE__)
 appDir = File.basename(projectPath)
 modDir = "/home/vagrant/"+appDir+"/node_modules"
+mountDir = "/var/www/builder"
 shellEnv = {
    "VAGRANT" => "/home/vagrant",
    "VAGRANT_MOD_DIR" => modDir,
-   "VAGRANT_MOUNT_DIR" => "/var/www",
+   "VAGRANT_MOUNT_DIR" => "/var/www/builder",
    "VAGRANT_APP_DIR" => appDir,
    "VAGRANT_DEV_MYP" => "roosterlake",
    "VAGRANT_DB" => "builder"
+   "VAGRANT_TIMEZONE" => "America/Chicago"
 }
-
 
 Vagrant.configure("2") do |config|
 	config.vm.provider "virtualbox" do |v|
@@ -36,7 +37,7 @@ Vagrant.configure("2") do |config|
 		skunkworks.vm.network :forwarded_port, host: 13306, guest: 3306
 		
 		skunkworks.vm.synced_folder ".", "/vagrant", disabled: true
-		skunkworks.vm.synced_folder projectPath, "/var/www", group: "www-data", mount_options: ['dmode=0775','fmode=0775']
+		skunkworks.vm.synced_folder projectPath, mountDir, group: "www-data", mount_options: ['dmode=0775','fmode=0775']
 	end
 
 

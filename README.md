@@ -35,3 +35,21 @@ cd Projects
 git clone https://github.com/jonathanbruder/builder.git builder
 cd builder
 vagrant up
+
+## Javascript conventions
+All javascript files in /public/js should be minified, and should only have the extension .js.
+Javascript source packages live in /src/Script/[packagename]. They should have the following structure:
+
+````
+- src/                  #partial scripts here
+- test/                 #tests and fixtures here
+[packagename].js        #concatenated and wrapped script
+package.json            #package metadata
+README.md               #documentation
+````
+
+The easiest way to create a new package is to use ````grunt create````. To create a blank package named **controller**, you could execute this command from the project directory:
+````
+grunt create:package:controller
+````
+
