@@ -10,8 +10,8 @@ shellEnv = {
    "VAGRANT_MOD_DIR" => modDir,
    "VAGRANT_MOUNT_DIR" => "/var/www/builder",
    "VAGRANT_APP_DIR" => appDir,
-   "VAGRANT_DEV_MYP" => "roosterlake",
-   "VAGRANT_DB" => "builder"
+   "VAGRANT_DEV_MYP" => "BananaNUTbr3@d",
+   "VAGRANT_DB" => "localDev"
    "VAGRANT_TIMEZONE" => "America/Chicago"
 }
 
@@ -19,7 +19,7 @@ Vagrant.configure("2") do |config|
 	config.vm.provider "virtualbox" do |v|
   		v.memory = 2048
   		v.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/vagrant", "1"]
-        v.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
+        	v.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
   		v.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/var_www", "1"]
 	end
 
