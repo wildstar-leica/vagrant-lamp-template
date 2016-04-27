@@ -13,9 +13,10 @@ Only use git from a local terminal. This is crucial for the integrity of the pro
 
 
 ### Build the environment
+They will create the path [your user]/Projects/builder, initialize the project, and start the environment build process. The first-time download will be several gigabytes and may take some time. You will be asked for your github login.
 
 #### Mac or Linux
-Open a terminal and run the following commands. They will create the path [your user]/Projects/builder, initialize the project, and start the environment build process. The first-time download will be several gigabytes and may take some time. You will be asked for your github login.
+Open a terminal and run the following commands. 
 
 ````
 mkdir -p ~/Projects
