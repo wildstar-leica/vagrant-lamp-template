@@ -29,7 +29,7 @@ Open a terminal and run the following commands.
 ````
 mkdir -p ~/Projects
 cd ~/Projects
-git clone https://github.com/jonathanbruder/builder.git builder
+git clone https://github.com/wildstar-leica/vagrant-lamp-template.git [projectName]
 cd builder
 vagrant up
 ````
@@ -41,7 +41,7 @@ Type "cmd" in the quick search bar. When it pops up, right click on CMD and choo
 cd /d %USERPROFILE%
 mkdir Projects
 cd Projects
-git clone https://github.com/jonathanbruder/builder.git builder
+git clone https://github.com/wildstar-leica/vagrant-lamp-template.git [projectName]
 cd builder
 vagrant up
 ````
