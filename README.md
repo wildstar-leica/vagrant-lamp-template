@@ -36,6 +36,7 @@ cd Projects
 git clone https://github.com/jonathanbruder/builder.git builder
 cd builder
 vagrant up
+````
 
 ## Javascript conventions
 All javascript files in /public/js should be minified, and should only have the extension .js.
