@@ -1,4 +1,12 @@
-# Builder
+# Vagrant LAMP template
+This project provides a vagrantfile and provisioning to set up a LAMP stack with the following (and maybe more):
+- Ubuntu 16.04
+- PHP 7.x
+- Mysql 5.7.x
+- Apache 2.4.x
+- CakePHP 3.x
+- Node 5.x (for Grunt)
+- Grunt for building and wrapping JS packages, and managing less files
 
 ## Getting started
 
