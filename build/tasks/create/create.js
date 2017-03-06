@@ -116,14 +116,14 @@ module.exports = function(grunt, _){
                 var replacements = {};
                 _.map(value.replacements, function(v, k){
                     var kToken = tokenize(k)
-                        , vToken = tokenize(v);
+                        , vToken = tokenize(v)
+                        , cToken = _.camelCase(vToken);
                     switch(value.case){
                         case "match":
-                            //we do camel first so they'll get overwritten by upper/lower if appropriate
-                            replacements[_.camelCase(kToken)] = _.camelCase(vToken);
-                            replacements[_.upperFirst(_.camelCase(kToken))] = _.upperFirst(_.camelCase(vToken));
-                            replacements[_.capitalize(kToken)] = _.capitalize(vToken);
-                            replacements[_.toLower(kToken)] = _.toLower(vToken);
+                            //we do camel first so they'll get overwritten by upper/kebab if appropriate
+                            replacements[_.camelCase(kToken)] = cToken;
+                            replacements[_.upperFirst(_.camelCase(kToken))] = _.upperFirst(_.camelCase(cToken));
+                            replacements[_.kebabCase(kToken)] = _.kebabCase(cToken);
                             break;
                         case "exact":
                         /* falls through */
